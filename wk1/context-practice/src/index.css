@@ -1,0 +1,58 @@
+.light-theme {
+  background-color: #b3ecff;
+  color: darkviolet;
+  margin: 0;
+  padding: 0;
+}
+
+.dark-theme {
+  background-color: black;
+  color: green;
+  margin: 0;
+  padding: 0;
+}
+
+#nav {
+  display: flex;
+  justify-content: space-around;
+  font-size: 10px;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  /* background-color: rgb(124, 247, 247); */
+}
+
+#main {
+  padding: 20px;
+  line-height: 1.6em;
+  text-align: center;
+}
+
+p {
+  padding: 40px;
+  font-weight: 900;
+}
+
+#light {
+  font-size: 20px;
+  border-radius: 13px;
+  margin: 20px;
+  padding: 20px;
+  box-shadow: 2px 2px black;
+}
+
+#dark {
+  font-size: 20px;
+  border-radius: 13px;
+  margin: 20px;
+  padding: 20px;
+  box-shadow: 2px 2px whitesmoke;
+}
+
+#footer {
+  text-align: center;
+  padding: 20px;
+  font-size: 21px;
+}
