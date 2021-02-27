@@ -13,9 +13,9 @@ function Data(props) {
               count += 1
               return (
                 <div id="movieListItem" key={count}>
-                  <h1>{movie.title}</h1><br />
-                  <h4>Director(s): <b>{movie.director}</b></h4><br />
-                  <h4>Producer(s): <b>{movie.producer}</b></h4><br />
+                  <h1>{movie.title}</h1>
+                  <h4>Director(s): <b>{movie.director}</b></h4>
+                  <h4>Producer(s): <b>{movie.producer}</b></h4>
                   <h2>ReleaseDate: {movie.releaseDate}</h2>
                 </div>
               )
