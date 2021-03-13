@@ -6,36 +6,27 @@ const initialState = {
 //Reducer
 function reducer (state = initialState, action) {
   switch (action.type){
-    case 'ADD_NEW_PERSON': 
-    //console.log(action.payload, "payload")
-    //console.log(state.state)
+    case 'ADD_NEW_PERSON':
     var newArr = state.state.contacts
     newArr.push(action.payload)
       return {
-        //...state,
         state : {
-          ...state.state,
           contacts: newArr
         }
         
     }
 
-    case 'REMOVE_PERSON': {
+    case 'REMOVE_PERSON': 
       const arrCopy = state.state.contacts
-      const updatedArr = arrCopy.filter(person => { 
-        
-        if(person.firstName.toLowerCase() == action.payload.firstName.toLowerCase() && person.lastName.toLowerCase() == action.payload.lastName.toLowerCase()){
-          return false
-        } return person
-      })
-      console.log(updatedArr)
-        
+      let x = parseInt(action.payload)
+      const updatedArr = arrCopy.splice(x, 1)
+      console.log(state.state.contacts)
+      console.log("REMOVE_PERSON ACTION")
       return {
         state: {
           contacts: updatedArr
         }  
       }
-    }  
 
     default: return {
       state
@@ -67,13 +58,24 @@ function removePerson (person) {
 function render () {
   const contacts = document.getElementById('contacts')
   contacts.innerHTML=""
-  console.log("in the render", state.state)
+  console.log("in the render", state.state.contacts)
   state.state.contacts.map((x, i) => {
-    console.log(x)
+    let div = document.createElement('div')
     let h3 = document.createElement('h3')
-    h3.innerHTML = x.firstName + " " + x.lastName
-    h3.id=i
-    contacts.appendChild(h3)
+    let h4email = document.createElement('h4')
+    let h4phone = document.createElement('h4')
+    let btn = document.createElement('button')
+    btn.textContent = 'Delete'
+    btn.classList.add('del')
+    h4phone.innerHTML = `Phone: ${x.phone}`
+    h4email.innerHTML = `Email: ${x.email}`
+    h3.innerHTML = `Name: ${x.firstName} ${x.lastName}`
+    div.id=i
+    div.appendChild(h3)
+    div.appendChild(h4email)
+    div.appendChild(h4phone)
+    div.appendChild(btn)
+    contacts.appendChild(div)
   })
 }
 
@@ -82,48 +84,24 @@ store.subscribe(render)
 
 //Event Listeners
 document.getElementById('sub-add')
-  .addEventListener('click', function () {
+  .addEventListener('click', function (e) {
+    e.preventDefault()
     const firstName = document.getElementById('add-first-name').value
     const lastName = document.getElementById('add-last-name').value
-    store.dispatch(addNewPerson({firstName: firstName, lastName: lastName, id: store.getState().state.contacts.length}))
-    //render()
+    const email = document.getElementById('add-email').value
+    const phone = document.getElementById('add-phone').value
+    store.dispatch(addNewPerson({firstName: firstName, lastName: lastName, email: email, phone: phone, id: store.getState().state.contacts.length}))
   })
 
-  // document.getElementById('sub-remove')
-  // .addEventListener('click', function () {
-  //   const firstName = document.getElementById('remove-first-name').value
-  //   const lastName = document.getElementById('remove-last-name').value
-  //   store.dispatch(removePerson({firstName: firstName, lastName: lastName}))
-  //   const contacts = document.getElementById('contacts')
-  //   console.log(contacts.children)
-
-  //   for (var i = 0; i < contacts.children.length; i++){
-  //     console.log(contacts.children[i].textContent, (firstName + " " + lastName))
-  //     if(contacts.children[i].textContent === (firstName + " " + lastName)){
-        
-  //       // contacts.removeChild(contacts.children[i])
-  //       console.log(contacts)
-  //     }
-  //   }
-  //   // contacts.children.filter((x) => {
-  //   //   console.log(x)
-  //   //   return x.textContent !== (firstName + " " + lastName)
-  //   // })
-  // })
-
-//preventDefault() for forms
-document.getElementById('add-form').addEventListener('submit', function (e){
-    e.preventDefault()
-  })
-    document.getElementById('sub-remove').addEventListener('click', function (e) {
-      e.preventDefault()
-      const firstName = document.getElementById('remove-first-name').value
-      const lastName = document.getElementById('remove-last-name').value
-      store.dispatch(removePerson({firstName: firstName, lastName: lastName}))
-      const contacts = document.getElementById('contacts')
-      for (var i = 0; i < contacts.children.length+1; i++){
-        if(contacts.children[i].textContent === (firstName + " " + lastName)){
-          contacts.removeChild(contacts.children[i])
-        }
-      }
-    })
+//Deleting from DOM
+let deleteBtn = document.getElementsByClassName('del')
+contacts.addEventListener('click', function(e){  
+  for (i=0; i<deleteBtn.length; i++){
+    if (e.target == deleteBtn[i]){
+      let x = deleteBtn[i].parentNode
+      contacts.removeChild(x)
+    }
+  }
+  let x = e.target.parentNode.id
+  store.dispatch(removePerson(x))
+})
