@@ -1,0 +1,41 @@
+body {
+  margin: 0;
+  background-color: rgba(175, 171, 171, 0.39)
+}
+
+form {
+  text-align: center;
+  background-color: green;
+  margin: 20px;
+  border-radius: 20px;
+}
+
+form > input {
+  border-radius: 20px;
+  box-shadow: 3px 3px 3px 3px rgba(255, 255, 0, 0.507);
+  margin: 20px;
+  height: 35px;
+  text-align: center;
+}
+
+form > button {
+  border-radius: 20px;
+  margin: 20px;
+  box-shadow: 3px 3px 3px 3px rgba(255, 255, 0, 0.507);
+  font-size: 20px;
+}
+
+.contact {
+  margin: 20px;
+  background-color: red;
+  text-align: center;
+  padding: 20px;
+  border-radius: 20px;
+  color: rgba(253, 253, 253, 0.699);
+}
+
+.contact > button {
+  border-radius: 20px;
+  box-shadow: 3px 3px 3px 3px rgba(12, 255, 4, 0.582);
+  font-size: 20px;
+}

@@ -36,6 +36,6 @@ function tvShowReducer (state = initialState, action){
   }
 }
 
-module.exports = {
+module.exports = { 
   addTvShow, deleteTvShow, tvShowReducer
 }

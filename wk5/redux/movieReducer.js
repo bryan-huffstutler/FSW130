@@ -31,7 +31,7 @@ function movieReducer (state = {movies: []}, action) {
       return {
         movies: newArr
       }
-    default:
+    default: 
       return state
   }
 }
