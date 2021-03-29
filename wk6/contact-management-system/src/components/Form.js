@@ -21,7 +21,6 @@ function Form (props) {
           placeholder='Enter Name'
           name='name'
           id='name'
-          onChange={props.onChange}
         /><br/>
 
         <input
@@ -29,7 +28,6 @@ function Form (props) {
           placeholder='Phone Number'
           name='number'
           id='number'
-          onChange={props.onChange}
         /><br/>
 
         <button>Add</button>

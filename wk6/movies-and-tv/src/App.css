@@ -1,0 +1,78 @@
+body {
+  background-color: slategrey;
+}
+
+#links  {
+  display: flex;
+  justify-content: space-between;
+  background-color: red;
+  padding: 20px;
+}
+
+#links > a {
+  color: white;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+#footer {
+  position: fixed;
+  bottom: 0;
+  text-align: center;
+  width: 100%;
+  background-color:rgba(54, 31, 31, 0.575);
+}
+
+#footer > h4 {
+  margin: 0px;
+  padding: 8px;
+}
+
+.item {
+  text-align: center;
+  background-color: rgba(40, 40, 129, 0.349);
+  margin: 35px;
+  padding: 15px;
+  border-radius: 20px;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.534);
+}
+
+.item > h2 {
+  margin-top: 0px;
+  color: white;
+}
+
+.item > button {
+  border-radius: 20px;
+}
+
+.item:nth-child(odd) {
+  background-color: rgba(167, 240, 167, 0.514);
+  box-shadow: 2px 2px 2px rgba(54, 31, 31, 0.575);
+}
+
+.form {
+  margin: 10px;
+  text-align: center;
+}
+
+.form > input {
+  padding: 10px;
+  border-radius: 20px;
+}
+
+.form > button {
+  margin: 20px;
+  padding: 10px;
+  border-radius: 20px;
+}
+
+#header {
+  text-align: center;
+  background-color:rgba(40, 40, 129, 0.349);
+  margin: 35px;
+  padding: 10px;
+  border-radius: 20px;
+  color: white;
+}
+
