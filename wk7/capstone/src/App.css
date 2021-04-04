@@ -50,6 +50,23 @@ a:hover {
   grid-template-columns: repeat(4, 1fr)
 }
 
+#cartHeader {
+  grid-column: 2/4;
+  grid-row: 1/2;
+}
+
+#cartCost {
+  grid-column: 1/2;
+  grid-row: 2/3;
+}
+
+#cartItems {
+  grid-column: 2/4;
+  grid-row: 2/3;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
 #links > a {
   text-decoration: none;
   color: rgb(0, 0, 0);
